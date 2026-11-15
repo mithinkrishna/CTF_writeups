@@ -6,10 +6,21 @@ IP: 10.49.190.170
   139/tcp    - netbios-ssn    -   Samba smbd 4
   445/tcp    - netbios-ssn    -   Samba smbd 4
 
-2. Used the Dirsearch tool and found a hidden webpage named/development/
+2. Used the Dirsearch tool and found a hidden webpage named /development/
 
 3. Used the enum4linux tool to get the usernames: 1)jan 2)kay
 
-4. 
+4. The password for user jan was subsequently obtained using Hydra's brute-force method
+   Password: Armando
+
+5. SSH connected to jan with the password obtained
+
+6. Linpeas was used to scan the device for security misconfigurations, poorly stored passwords, and any files that allow for privilege escalation, through which the id_rsa key for user kay was obtained.
+
+7. Tried to SSH connect to kay with the id_rsa, but it required a password
+
+8. Used John the Ripper tool to crack the passphrase for the id_rsa SSH key
+
+9. Successfully connected and obtained the password(flag) in the pass.bak file
 
 
